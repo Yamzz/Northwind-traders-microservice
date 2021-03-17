@@ -1,4 +1,4 @@
-# Northwind-traders-microservice
+# Northwind Traders Microservice
 A micro-service application re-written for Northwind traders :
 * Frontend: React, Hooks, Redux 
 * Backend: .Net 5, C#, Entity Framework Core
