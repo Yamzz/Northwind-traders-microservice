@@ -9,16 +9,19 @@ The sample app is aimed at executives, analysts, or sales representatives. It he
 # Northwind database for Postgres
 
 A simple sql script that will populate a database with the famous northwind example, adapted for postgres.
-
-Entity Relationship Diagram
-<img src=ER.png />
-
 ## Getting started:
 
 ### Manually
-
 Use the provided sql file `nortwhind.sql` in order to populate your database.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Entity Relationship Diagram
+
+<img src=ERD-NorthWind.png />
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Entity Relationship Model
-<img src=ER.png />
+
+<img src=EntityRelationModel.png />
 
