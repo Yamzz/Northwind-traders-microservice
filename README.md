@@ -10,11 +10,15 @@ The sample app is aimed at executives, analysts, or sales representatives. It he
 
 A simple sql script that will populate a database with the famous northwind example, adapted for postgres.
 
-<img src=database/ER.png />
+Entity Relationship Diagram
+<img src=ER.png />
 
 ## Getting started:
 
 ### Manually
 
 Use the provided sql file `nortwhind.sql` in order to populate your database.
+
+Entity Relationship Model
+<img src=ER.png />
 
