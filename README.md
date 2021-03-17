@@ -5,3 +5,16 @@ A micro-service application re-written for Northwind traders :
 
 The sample app is aimed at executives, analysts, or sales representatives. It helps them establish targets based on insights into historical data as well as track sales and product performance in real time.
 * https://demos.telerik.com/aspnet-mvc/html5-dashboard-sample-app
+
+# Northwind database for Postgres
+
+A simple sql script that will populate a database with the famous northwind example, adapted for postgres.
+
+<img src=database/ER.png />
+
+## Getting started:
+
+### Manually
+
+Use the provided sql file `nortwhind.sql` in order to populate your database.
+
