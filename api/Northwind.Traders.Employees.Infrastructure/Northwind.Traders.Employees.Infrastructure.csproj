@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Traders.Employees.DataAccess\Northwind.Traders.Employees.DataAccess.csproj" />
+    <ProjectReference Include="..\Northwind.Traders.Employees.Logging\Northwind.Traders.Employees.Logging.csproj" />
+    <ProjectReference Include="..\Northwind.Traders.Employees.Model\Northwind.Traders.Employees.Model.csproj" />
+  </ItemGroup>
+
+</Project>

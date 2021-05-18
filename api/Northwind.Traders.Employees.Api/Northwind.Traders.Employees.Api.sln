@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Traders.Employees
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AA036696-9AFD-435D-A159-4FB1FBE6B59D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Traders.Employees.Model", "..\Northwind.Traders.Employees.Model\Northwind.Traders.Employees.Model.csproj", "{29BF45EF-D336-4E6A-ABB5-C6179890B477}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Traders.Employees.Model", "..\Northwind.Traders.Employees.Model\Northwind.Traders.Employees.Model.csproj", "{29BF45EF-D336-4E6A-ABB5-C6179890B477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Traders.Employees.DataAccess", "..\Northwind.Traders.Employees.DataAccess\Northwind.Traders.Employees.DataAccess.csproj", "{1609E51F-E86A-465E-90F2-8998FC869D84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Traders.Employees.Infrastructure", "..\Northwind.Traders.Employees.Infrastructure\Northwind.Traders.Employees.Infrastructure.csproj", "{33D4A3DE-EB9D-44F3-845D-DDDADD077502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Traders.Employees.Logging", "..\Northwind.Traders.Employees.Logging\Northwind.Traders.Employees.Logging.csproj", "{C64ECF5C-AABB-4C9E-B57B-29B733148DFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,18 @@ Global
 		{29BF45EF-D336-4E6A-ABB5-C6179890B477}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29BF45EF-D336-4E6A-ABB5-C6179890B477}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29BF45EF-D336-4E6A-ABB5-C6179890B477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1609E51F-E86A-465E-90F2-8998FC869D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1609E51F-E86A-465E-90F2-8998FC869D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1609E51F-E86A-465E-90F2-8998FC869D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1609E51F-E86A-465E-90F2-8998FC869D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33D4A3DE-EB9D-44F3-845D-DDDADD077502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D4A3DE-EB9D-44F3-845D-DDDADD077502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D4A3DE-EB9D-44F3-845D-DDDADD077502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D4A3DE-EB9D-44F3-845D-DDDADD077502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C64ECF5C-AABB-4C9E-B57B-29B733148DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64ECF5C-AABB-4C9E-B57B-29B733148DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64ECF5C-AABB-4C9E-B57B-29B733148DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64ECF5C-AABB-4C9E-B57B-29B733148DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

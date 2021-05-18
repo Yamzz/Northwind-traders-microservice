@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Northwind.Traders.Employees.Api.Logging;
+using Northwind.Traders.Employees.Logging;
 using Northwind.Traders.Employees.Model.ErrorHandling;
 using System;
 using System.Collections.Generic;

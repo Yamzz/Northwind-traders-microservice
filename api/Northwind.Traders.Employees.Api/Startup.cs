@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,10 @@ using NLog.Extensions.Logging;
 using Northwind.Traders.Employees.Api.Extensions;
 using Northwind.Traders.Employees.Api.Middleware;
 using System;
+using System.IO;
+using System.Reflection;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Northwind.Traders.Employees.Api
 {
@@ -38,7 +43,24 @@ namespace Northwind.Traders.Employees.Api
 
             services.ConfigureLoggerService();
 
-            services.AddControllers();
+            services.ConfigureDatabase();
+
+            services.ConfigureRepositories();
+
+            services.ConfigureServices();
+
+            services.AddControllers(options =>
+            {
+                options.RespectBrowserAcceptHeader = true; // false by default
+                // ReferenceLoopHandling is now supported in the System.Text.Json serializer, .NET 5 version
+                options.OutputFormatters.RemoveType<SystemTextJsonOutputFormatter>();
+                options.OutputFormatters.Add(new SystemTextJsonOutputFormatter(new JsonSerializerOptions(JsonSerializerDefaults.Web)
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve,
+                }));
+            });
+
+
 
             // add health check service
             services.AddHealthChecks();
@@ -55,9 +77,9 @@ namespace Northwind.Traders.Employees.Api
             });
 
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(config =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo 
+                config.SwaggerDoc("v1", new OpenApiInfo 
                 { 
                     Title = "Northwind.Traders.Employees.Api", 
                     Version = "v1",
@@ -75,9 +97,11 @@ namespace Northwind.Traders.Employees.Api
                         Url = new Uri("https://google.com"),
                     }
                 });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                config.IncludeXmlComments(xmlPath);
             });
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

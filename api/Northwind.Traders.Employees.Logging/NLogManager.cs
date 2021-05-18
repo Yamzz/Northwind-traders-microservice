@@ -1,12 +1,12 @@
 ﻿using NLog;
-using Northwind.Traders.Employees.Api.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.Traders.Employees.Api.Logging
+namespace Northwind.Traders.Employees.Logging
 {
     public class NLogManager : INLogManager
     {
@@ -90,7 +90,7 @@ namespace Northwind.Traders.Employees.Api.Logging
             }
         }
 
-  
+
         /// <summary>
         /// These two method are used to retain the ${callsite} for all the Nlog method  
         /// </summary>

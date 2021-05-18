@@ -1,9 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Northwind.Traders.Employees.Api.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Northwind.Traders.Employees.DataAccess.IRepositories;
+using Northwind.Traders.Employees.DataAccess.Repositories;
+using Northwind.Traders.Employees.DataAccess.Wrapper;
+using Northwind.Traders.Employees.Infrastructure.IServices;
+using Northwind.Traders.Employees.Infrastructure.Services;
+using Northwind.Traders.Employees.Logging;
+using Northwind.Traders.Employees.Model.Entities;
 
 namespace Northwind.Traders.Employees.Api.Extensions
 {
@@ -28,5 +31,26 @@ namespace Northwind.Traders.Employees.Api.Extensions
             services.AddSingleton<INLogManager, NLogManager>();
         }
 
+        public static void ConfigureDatabase(this IServiceCollection services)
+        {
+            // Configure DbContext with Scoped lifetime   
+            services.AddDbContext<northwindtradersContext>(options =>
+            {
+                options.UseNpgsql("Server=localhost; Database=northwind-traders;User Id=postgres; Password=admin;");
+                //options.UseNpgsql(configuration.GetConnectionString("ManagementConnection"));
+            });
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
+
+        public static void  ConfigureRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        }
+
+        public static void ConfigureServices(this IServiceCollection services)
+        {
+            services.AddScoped<IEmployeeService, EmployeeService>();
+        }
     }
 }
