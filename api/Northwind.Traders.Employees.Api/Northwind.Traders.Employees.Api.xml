@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Northwind.Traders.Employees.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Northwind.Traders.Employees.Api.Controllers.EmployeeController.Employees">
+            <summary>
+            Gets the list of all Employees
+            </summary>
+            <response code="201"> All Employee items</response>
+        </member>
+    </members>
+</doc>
