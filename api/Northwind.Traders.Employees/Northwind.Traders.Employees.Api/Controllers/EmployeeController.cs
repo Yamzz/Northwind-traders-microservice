@@ -5,6 +5,8 @@ using Northwind.Traders.Employees.Logging;
 using Northwind.Traders.Employees.Model.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Northwind.Traders.Employees.Model.Mappers;
+using Northwind.Traders.Employees.Model.Contracts;
 
 namespace Northwind.Traders.Employees.Api.Controllers
 {
@@ -22,7 +24,6 @@ namespace Northwind.Traders.Employees.Api.Controllers
             this.employeeService = employeeService;
         }
 
-
         /// <summary>
         /// Gets the list of all Employees
         /// </summary>
@@ -31,10 +32,10 @@ namespace Northwind.Traders.Employees.Api.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<IEnumerable<Employee>>> Employees()
+        public async Task<ActionResult<IEnumerable<EmployeeDTO>>> Employees()
         {
            var employees = await this.employeeService.GetAllEmployees();
-           
+
            if (employees == null)
            {
                logger.Warn("No employees data not found in the datbase");
@@ -42,7 +43,7 @@ namespace Northwind.Traders.Employees.Api.Controllers
            }
 
            logger.Info("Employees request successfully completed");
-           return this.Ok(employees);
+           return this.Ok(employees.ToDTO<EmployeeDTO>());
         }
     }
 }
